@@ -24,11 +24,10 @@ USE `Pedidos` ;
 DROP TABLE IF EXISTS `Pedidos`.`Bairro` ;
 
 CREATE TABLE IF NOT EXISTS `Pedidos`.`Bairro` (
-  `idBairro` INT(11) NOT NULL AUTO_INCREMENT,
+  `idBairro` INT NOT NULL AUTO_INCREMENT,
   `nomeBairro` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idBairro`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -51,7 +50,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `Pedidos`.`Cidade` ;
 
 CREATE TABLE IF NOT EXISTS `Pedidos`.`Cidade` (
-  `idCidade` INT(11) NOT NULL AUTO_INCREMENT,
+  `idCidade` INT NOT NULL AUTO_INCREMENT,
   `nomeCidade` VARCHAR(45) NULL DEFAULT NULL,
   `UnidadeFederacao_siglaUf` CHAR(2) NOT NULL,
   PRIMARY KEY (`idCidade`),
@@ -62,7 +61,6 @@ CREATE TABLE IF NOT EXISTS `Pedidos`.`Cidade` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -85,7 +83,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `Pedidos`.`Logradouro` ;
 
 CREATE TABLE IF NOT EXISTS `Pedidos`.`Logradouro` (
-  `idLogradouro` INT(11) NOT NULL AUTO_INCREMENT,
+  `idLogradouro` INT NOT NULL AUTO_INCREMENT,
   `nomeLogradouro` VARCHAR(45) NULL DEFAULT NULL,
   `TipoLogradouro_siglaLogradouro` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`idLogradouro`),
@@ -192,7 +190,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `Pedidos`.`Produto` ;
 
 CREATE TABLE IF NOT EXISTS `Pedidos`.`Produto` (
-  `codProduto` INT(11) NOT NULL AUTO_INCREMENT,
+  `codProduto` INT NOT NULL AUTO_INCREMENT,
   `nomeProduto` VARCHAR(45) NULL DEFAULT NULL,
   `precoProduto` DOUBLE NULL DEFAULT NULL,
   `qtdeEstoque` INT UNSIGNED default 0,
@@ -207,7 +205,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `Pedidos`.`ItemPedidoVenda` ;
 
 CREATE TABLE IF NOT EXISTS `Pedidos`.`ItemPedidoVenda` (
-  `qtdeVenda` INT(11) NULL DEFAULT NULL,
+  `qtdeVenda` INT NULL DEFAULT NULL,
   `precoVenda` DOUBLE NULL DEFAULT NULL,
   `totalItemProduto` DOUBLE NULL DEFAULT NULL,
   `PedidoVenda_nroPedido` INT(11) NOT NULL,
