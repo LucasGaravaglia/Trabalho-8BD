@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `Pedidos`.`Produto` (
   `codProduto` INT(11) NOT NULL AUTO_INCREMENT,
   `nomeProduto` VARCHAR(45) NULL DEFAULT NULL,
   `precoProduto` DOUBLE NULL DEFAULT NULL,
-  `qtdeEstoque` INT NULL,
+  `qtdeEstoque` INT UNSIGNED default 0,
   PRIMARY KEY (`codProduto`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
