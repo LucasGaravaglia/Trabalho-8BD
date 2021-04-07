@@ -1,4 +1,4 @@
-# Trabalho-8BD
+# Trabalho 8 - Banco de Dados
 
 ## 1
 
