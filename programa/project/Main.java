@@ -12,8 +12,8 @@ public class Main {
 		Integer[] d = {41,42,43,44,45};
 		Integer[] e = {51,52,53,54,55};
 
-		// conn.generateOrderRequest("2021-04-07", 255.36, 12, 1, 77, 
-		// 		"Ao lado do Mercado.", "Não sei oq é isso");
+		conn.generateOrderRequest("2021-04-07", 255.36, 12, 1, 77, 
+				"Ao lado do Mercado.", "Não sei oq é isso");
 		//conn.registerChosenItem(5, 200.0, 1000.0, 2, 9);
 		conn.registerAllChosenItems(a,b,c,d,e);
 

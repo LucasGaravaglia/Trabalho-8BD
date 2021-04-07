@@ -27,7 +27,7 @@ public class DbConnection {
     System.out.println("Gerando o pedido de venda");
     String sql = "INSERT INTO PedidoVenda" +
     "(dtPedido,totalPedido,Cliente_codCliente," +
-      "EnderecoEntrega_idEntrega,nroCasa_endEntrega," +
+      "EnderecoEntrega_idEndereco,nroCasa_endEntrega," +
       "compl_endEntrega,PedidoVendacol) " +
     "VALUES " +
       "(" + 
@@ -39,12 +39,13 @@ public class DbConnection {
         "'" + deliveryAddrCompliment + "'," +
         "'" + pedidoVendacol + "'" + 
         ");";
+    System.out.println(sql);
     return sql;
   }
 
   public String registerChosenItem(Integer saleQnt, Double saleCost,
       Double totalProductItem, Integer orderNumber, Integer productId) {
-    System.out.println("Registrando um item");
+    System.out.println("Registrando um item para o pedido " + orderNumber.toString());
     String sql = "INSERT INTO ItemPedidoVenda" +
                 "(" + 
                   "qtdeVenda,precoVenda,totalItemProduto," +
@@ -58,6 +59,7 @@ public class DbConnection {
                     orderNumber.toString() + "," +
                     productId.toString() +
                     ");";
+    System.out.println(sql);
     return sql;
   }
 
@@ -73,7 +75,7 @@ public class DbConnection {
   
 // UPDATE `Produto` SET `qtdEstoque` = qtdEstoque-1 WHERE codProduto = $;
 
-  public String reduceProductQnt(Integer productId) {
+  public void reduceProductQnt(Integer productId) {
     String sql = "";
   }
 
