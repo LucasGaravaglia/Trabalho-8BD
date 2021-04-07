@@ -1,4 +1,4 @@
--- Datatabase sampling
+USE Pedidos;
 
 INSERT INTO Bairro (nomeBairro) VALUES ("Coroado");
 INSERT INTO Bairro (nomeBairro) VALUES ("Indianópolis");
@@ -38,7 +38,6 @@ INSERT INTO Cidade (nomeCidade, UnidadeFederacao_siglaUf) VALUES ("Sousa", "MA")
 INSERT INTO Cidade (nomeCidade, UnidadeFederacao_siglaUf) VALUES ("Campo Grande", "MT");
 INSERT INTO Cidade (nomeCidade, UnidadeFederacao_siglaUf) VALUES ("São Luís", "MA");
 
-
 INSERT INTO TipoLogradouro (siglaLogradouro, nomeLogradouro) VALUES ("R.", "Rua");
 INSERT INTO TipoLogradouro (siglaLogradouro, nomeLogradouro) VALUES ("Av.", "Avenida");
 INSERT INTO TipoLogradouro (siglaLogradouro, nomeLogradouro) VALUES ("Al.", "Alameda");
@@ -70,47 +69,26 @@ INSERT INTO Endereco (CEP, Cidade_idCidade, Logradouro_idLogradouro, Bairro_idBa
 INSERT INTO Endereco (CEP, Cidade_idCidade, Logradouro_idLogradouro, Bairro_idBairro) VALUES ("65081788", 12, 3, 1);
 
 
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Pedro Kevin Isaac Silveira", 12,"582");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Davi Marcelo da Costa",11 ,"321");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Nicolas Ryan Edson da Rosa", 10,"140");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Milena Aparecida Nicole Oliveira",9 ,"730");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Larissa Adriana Marcela da Costa", 8,"458");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Catarina Luana Almeida", 7,"269");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Vitor Benício Paulo Galvão", 6,"903");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Augusto Ricardo Antonio da Rocha",5 ,"921");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Andreia Eliane Julia Rocha",4 ,"696");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Raul Otávio Benedito Duarte", 3,"882");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Alessandra Catarina Cláudia Teixeira", 2,"488");
+INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Severino Raul Leonardo Farias",1 ,"966");
 
-
-
-
-
-"Pedro Kevin Isaac Silveira",	
-"582",
-	
-
-"Davi Marcelo da Costa",
-"321"
-  
-"Nicolas Ryan Edson da Rosa",
-"140",
-	
-	
-"Milena Aparecida Nicole Oliveira",
-"730",
-	
-"Larissa Adriana Marcela da Costa",
-"458",
-
-"Catarina Luana Almeida",
-"269",
-	
-	
-"Vitor Benício Paulo Galvão",
-"903",
-	
-"Augusto Ricardo Antonio da Rocha",
-"921",
-	
-"Andreia Eliane Julia Rocha",
-"696",
-	
-"Raul Otávio Benedito Duarte",
-"882",
-	
-"Alessandra Catarina Cláudia Teixeira",
-488,
-
-"Severino Raul Leonardo Farias",
-966,
-	
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("stews",49),("desserts",450),("sandwiches",911),("stews",370),("noodles",394),("cereals",601),("pasta",419),("soups",589),("noodles",872),("cereals",134);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("seafood",989),("cereals",441),("stews",173),("desserts",116),("noodles",682),("stews",862),("desserts",857),("stews",282),("desserts",186),("cereals",245);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("noodles",560),("seafood",886),("sandwiches",121),("desserts",29),("cereals",733),("stews",375),("pasta",337),("pies",893),("cereals",458),("seafood",19);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("desserts",870),("pies",496),("pasta",657),("pies",378),("seafood",741),("cereals",817),("desserts",795),("stews",747),("stews",117),("noodles",832);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("noodles",919),("soups",306),("cereals",63),("seafood",415),("noodles",33),("stews",182),("noodles",800),("sandwiches",455),("seafood",818),("salads",721);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("desserts",276),("sandwiches",931),("noodles",478),("salads",503),("desserts",150),("seafood",406),("pies",90),("seafood",455),("cereals",66),("desserts",621);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("soups",100),("pasta",727),("desserts",599),("stews",597),("pies",737),("salads",430),("sandwiches",982),("pasta",731),("stews",336),("soups",90);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("soups",564),("pies",82),("salads",175),("noodles",829),("cereals",326),("desserts",269),("stews",995),("seafood",696),("pies",283),("cereals",917);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("soups",783),("desserts",475),("pies",955),("stews",426),("desserts",499),("soups",30),("pies",699),("pies",637),("pasta",312),("salads",159);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("sandwiches",93),("pasta",909),("stews",701),("stews",943),("stews",3),("seafood",66),("pasta",924),("cereals",168),("seafood",674),("desserts",15);

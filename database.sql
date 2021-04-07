@@ -163,7 +163,7 @@ DROP TABLE IF EXISTS `Pedidos`.`PedidoVenda` ;
 CREATE TABLE IF NOT EXISTS `Pedidos`.`PedidoVenda` (
   `nroPedido` INT(11) NOT NULL AUTO_INCREMENT,
   `dtPedido` DATE NULL DEFAULT NULL,
-  `totoalPedido` DOUBLE NULL DEFAULT NULL,
+  `totalPedido` DOUBLE NULL DEFAULT NULL,
   `nroCasa_endEntrega` INT(11) NULL DEFAULT NULL,
   `compl_endEntrega` VARCHAR(45) NULL DEFAULT NULL,
   `PedidoVendacol` VARCHAR(45) NULL DEFAULT NULL,
@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `Pedidos`.`Produto` (
   `codProduto` INT(11) NOT NULL AUTO_INCREMENT,
   `nomeProduto` VARCHAR(45) NULL DEFAULT NULL,
   `precoProduto` DOUBLE NULL DEFAULT NULL,
-  `qtdeEstoque` INT NULL,
+  `qtdeEstoque` INT UNSIGNED default 0,
   PRIMARY KEY (`codProduto`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
