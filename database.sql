@@ -168,17 +168,17 @@ CREATE TABLE IF NOT EXISTS `Pedidos`.`PedidoVenda` (
   `compl_endEntrega` VARCHAR(45) NULL DEFAULT NULL,
   `PedidoVendacol` VARCHAR(45) NULL DEFAULT NULL,
   `Cliente_codCliente` INT(11) NOT NULL,
-  `Endereco_idEndereco` INT(11) NOT NULL,
-  PRIMARY KEY (`nroPedido`, `Endereco_idEndereco`),
+  `EnderecoEntrega_idEndereco` INT(11) NOT NULL,
+  PRIMARY KEY (`nroPedido`, `EnderecoEntrega_idEndereco`),
   INDEX `fk_PedidoVenda_Cliente1_idx` (`Cliente_codCliente` ASC) VISIBLE,
-  INDEX `fk_PedidoVenda_Endereco1_idx` (`Endereco_idEndereco` ASC) VISIBLE,
+  INDEX `fk_PedidoVenda_Endereco1_idx` (`EnderecoEntrega_idEndereco` ASC) VISIBLE,
   CONSTRAINT `fk_PedidoVenda_Cliente1`
     FOREIGN KEY (`Cliente_codCliente`)
     REFERENCES `Pedidos`.`Cliente` (`codCliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_PedidoVenda_Endereco1`
-    FOREIGN KEY (`Endereco_idEndereco`)
+    FOREIGN KEY (`EnderecoEntrega_idEndereco`)
     REFERENCES `Pedidos`.`Endereco` (`idEndereco`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
