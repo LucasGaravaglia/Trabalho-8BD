@@ -99,7 +99,9 @@ public class DbConnection {
     String[] values = new String[5];
     int i = 0;
     for (String queryString : query) {
+      System.out.println("CHEGOU");
       values = queryString.split("VALUES (")[1].split(")")[0].split(",");
+      System.out.println(values);
       ids[i] = Integer.parseInt(values[4]); 
       qnts[i] = Integer.parseInt(values[0]); 
     }
