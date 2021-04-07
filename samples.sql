@@ -82,13 +82,4 @@ INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUE
 INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Alessandra Catarina Cláudia Teixeira", 2,"488");
 INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Severino Raul Leonardo Farias",1 ,"966");
 
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("stews",49),("desserts",450),("sandwiches",911),("stews",370),("noodles",394),("cereals",601),("pasta",419),("soups",589),("noodles",872),("cereals",134);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("seafood",989),("cereals",441),("stews",173),("desserts",116),("noodles",682),("stews",862),("desserts",857),("stews",282),("desserts",186),("cereals",245);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("noodles",560),("seafood",886),("sandwiches",121),("desserts",29),("cereals",733),("stews",375),("pasta",337),("pies",893),("cereals",458),("seafood",19);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("desserts",870),("pies",496),("pasta",657),("pies",378),("seafood",741),("cereals",817),("desserts",795),("stews",747),("stews",117),("noodles",832);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("noodles",919),("soups",306),("cereals",63),("seafood",415),("noodles",33),("stews",182),("noodles",800),("sandwiches",455),("seafood",818),("salads",721);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("desserts",276),("sandwiches",931),("noodles",478),("salads",503),("desserts",150),("seafood",406),("pies",90),("seafood",455),("cereals",66),("desserts",621);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("soups",100),("pasta",727),("desserts",599),("stews",597),("pies",737),("salads",430),("sandwiches",982),("pasta",731),("stews",336),("soups",90);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("soups",564),("pies",82),("salads",175),("noodles",829),("cereals",326),("desserts",269),("stews",995),("seafood",696),("pies",283),("cereals",917);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("soups",783),("desserts",475),("pies",955),("stews",426),("desserts",499),("soups",30),("pies",699),("pies",637),("pasta",312),("salads",159);
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`) VALUES ("sandwiches",93),("pasta",909),("stews",701),("stews",943),("stews",3),("seafood",66),("pasta",924),("cereals",168),("seafood",674),("desserts",15);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`,`qtedEstoque`) VALUES  ("cereals",53,13), ("noodles",165,35), ("salads",155,11), ("pies",144,24), ("desserts",11,13), ("seafood",147,31), ("soups",9,49); ("pasta",29,18), ("sandwiches",1,42);
