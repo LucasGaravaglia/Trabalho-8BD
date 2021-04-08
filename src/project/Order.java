@@ -1,8 +1,6 @@
 package project;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 
 public class Order {
   ItemPedidoVenda itemPedidoVenda;

@@ -11,7 +11,7 @@ public class ItemPedidoVenda {
   private String[] sqls;
 
   public ItemPedidoVenda(ItemPedidoVenda itemPedidoVenda) {
-    int i, n = saleQnt.length;
+    int i, n = itemPedidoVenda.getSaleQnt().length;
 
     this.saleQnt = new Integer[n];
     this.saleCost = new Double[n];
