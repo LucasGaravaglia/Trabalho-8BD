@@ -1,5 +1,7 @@
 package project;
 
+import javax.security.auth.x500.X500Principal;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -25,7 +27,6 @@ public class Main {
 			totalProductItem, 
 			orderNumber, 
 			productId);
-
 
 		conn.closeConnection();
 	}
