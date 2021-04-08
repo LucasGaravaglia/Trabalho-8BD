@@ -14,12 +14,15 @@ public class Order {
   
   public void endOrder(DbConnection connection) {
     try{
+      System.out.println("Inicializando transação");
       connection.setAutoCommit(false);
-      this.pedidoVenda.executeTransition(connection);
-      this.itemPedidoVenda.executeTransition(connection);
+      this.pedidoVenda.executeTransaction(connection);
+      this.itemPedidoVenda.setOrderNumber(this.pedidoVenda.selectMaxNroPedido(connection));
+      this.itemPedidoVenda.executeTransaction(connection);
       this.produto = new Produto(this.itemPedidoVenda.getSqls());
-      this.produto.executeTransition(connection,this.itemPedidoVenda.getProductId(), this.itemPedidoVenda.getSaleQnt());
-
+      this.produto.executeTransaction(connection,this.itemPedidoVenda.getProductId(), this.itemPedidoVenda.getSaleQnt());
+      connection.commit();
+      System.out.println("Finalizada a transação");
     } catch (SQLException e) {
       try {
         connection.rollback();

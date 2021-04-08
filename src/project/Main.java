@@ -1,5 +1,6 @@
 package project;
 
+import java.sql.SQLException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,10 +13,9 @@ public class Main {
 		Integer[] saleQnt = {3};
 		Double[] saleCost = {33.00};
 		Double[] totalProductItem = {11.00};
-		Integer[] orderNumber = {1};
 		Integer[] productId = { 5 };
 		ItemPedidoVenda itemPedidoVenda = new ItemPedidoVenda(
-				saleQnt, saleCost, totalProductItem, orderNumber, productId
+				saleQnt, saleCost, totalProductItem, productId
 		);
 		Order order = new Order(itemPedidoVenda, pedidoVenda);
 		order.endOrder(connection);

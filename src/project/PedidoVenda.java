@@ -1,6 +1,7 @@
 package project;
 
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class PedidoVenda {
 
@@ -35,24 +36,21 @@ public class PedidoVenda {
 
   public String generateOrderRequest() {
     System.out.println("Gerando o pedido de venda");
-    String sql = "INSERT INTO PedidoVenda" +
-    "(dtPedido,totalPedido,Cliente_codCliente," +
-      "EnderecoEntrega_idEndereco,nroCasa_endEntrega," +
-      "compl_endEntrega,PedidoVendacol) " +
-    "VALUES " +
-      "(" + 
-        "'" + this.orderDt + "'," +
-        this.total.toString() + "," +
-        this.clientId.toString() + "," +
-        this.deliveryAddrId.toString() + "," +
-        this.houseNumber.toString() + "," +
-        "'" + this.deliveryAddrCompliment + "'," +
-        "'" + this.pedidoVendacol + "'" + 
-        ")";
+    String sql = "INSERT INTO PedidoVenda" + "(dtPedido,totalPedido,Cliente_codCliente,"
+        + "EnderecoEntrega_idEndereco,nroCasa_endEntrega," + "compl_endEntrega,PedidoVendacol) " + "VALUES " + "(" + "'"
+        + this.orderDt + "'," + this.total.toString() + "," + this.clientId.toString() + ","
+        + this.deliveryAddrId.toString() + "," + this.houseNumber.toString() + "," + "'" + this.deliveryAddrCompliment
+        + "'," + "'" + this.pedidoVendacol + "'" + ")";
     return sql;
   }
+  
+  public Integer selectMaxNroPedido(DbConnection connection) throws SQLException {
+    ResultSet rs = connection.createStatement().executeQuery("SELECT MAX(nroPedido) FROM PedidoVenda;");
+    rs.next();
+    return Integer.parseInt(rs.getString(1));
+  } 
 
-  public void executeTransition(DbConnection connection) throws SQLException {
+  public void executeTransaction(DbConnection connection) throws SQLException {
     connection.execute(this.generateOrderRequest());
   }
 
@@ -77,7 +75,6 @@ public class PedidoVenda {
   public String getPedidoVendacol (){
     return this.pedidoVendacol;
   }
-
   public void setOrderDt (String orderDt) {
     this.orderDt = orderDt;
   }

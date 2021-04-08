@@ -1,9 +1,6 @@
 package project;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DbConnection {
   private Connection connection = null;
@@ -43,6 +40,14 @@ public class DbConnection {
   public void execute(String query) throws SQLException {
     Statement stmQuery = this.connection.createStatement();
     stmQuery.execute(query);
+  }
+
+  public void commit() throws SQLException {
+    this.connection.commit();
+  }
+  
+  public Statement createStatement() throws SQLException {
+    return this.connection.createStatement();
   }
 
 }

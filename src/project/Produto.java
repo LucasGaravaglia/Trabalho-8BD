@@ -38,7 +38,7 @@ public class Produto {
     return sqls;
   }
 
-  public void executeTransition(DbConnection connection, Integer[] productId, Integer[] saleQnt) throws SQLException {
+  public void executeTransaction(DbConnection connection, Integer[] productId, Integer[] saleQnt) throws SQLException {
     for (String query : this.reduceAllChosenProductsQtn(productId, saleQnt)) {
       connection.execute(query);
     }
