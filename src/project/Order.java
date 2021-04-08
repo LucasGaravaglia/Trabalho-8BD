@@ -1,6 +1,7 @@
 package project;
 
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 
 public class Order {
   ItemPedidoVenda itemPedidoVenda;
@@ -14,7 +15,7 @@ public class Order {
   
   public void endOrder(DbConnection connection) {
     try{
-      System.out.println("Inicializando transação");
+      System.out.println("Inicializando transação\n");
       connection.setAutoCommit(false);
       this.pedidoVenda.executeTransaction(connection);
       this.itemPedidoVenda.setOrderNumber(this.pedidoVenda.selectMaxNroPedido(connection));
@@ -22,11 +23,19 @@ public class Order {
       this.produto = new Produto(this.itemPedidoVenda.getSqls());
       this.produto.executeTransaction(connection,this.itemPedidoVenda.getProductId(), this.itemPedidoVenda.getSaleQnt());
       connection.commit();
-      System.out.println("Finalizada a transação");
-    } catch (SQLException e) {
+      System.out.println("Finalizada a transação\n");
+    } catch (SQLSyntaxErrorException e1) {
       try {
         connection.rollback();
-        System.out.println("Alterações revertidas com sucesso do banco de dados!" + e.getMessage());
+        System.out.println("\nAlterações revertidas com sucesso do banco de dados!");
+      } catch (SQLException e2) {
+        System.out.println("Não foi possível reverter as atualizações.");
+      }
+      System.out.println("Não foi possível reduzir a quantidade em estoque.\nValor negativo não permitido.");
+    }catch (SQLException e) {
+      try {
+        connection.rollback();
+        System.out.println("Alterações revertidas com sucesso do banco de dados!");
       } catch (SQLException e1) {
         System.out.println("Não foi possível reverter as atualizações " + e1.getMessage());
       }

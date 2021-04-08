@@ -6,19 +6,43 @@ public class Main {
 	public static void main(String[] args) {
 
 		DbConnection connection = new DbConnection();
-		PedidoVenda pedidoVenda = new PedidoVenda(
+		// PedidoVenda pedidoVenda = new PedidoVenda(
+		// 		"2021-07-07", 6516.00, 4, 4, 774,
+		// 		"Ao lado da padaria.", "Alguma coisa q eu não sei."
+		// );
+		// Integer[] saleQnt = {3};
+		// Double[] saleCost = {33.00};
+		// Double[] totalProductItem = {11.00};
+		// Integer[] productId = { 5 };
+		// ItemPedidoVenda itemPedidoVenda = new ItemPedidoVenda(
+		// 		saleQnt, saleCost, totalProductItem, productId
+		// );
+		PedidoVenda successCasePedidoVenda = new PedidoVenda(
 				"2021-07-07", 6516.00, 4, 4, 774,
 				"Ao lado da padaria.", "Alguma coisa q eu não sei."
 		);
-		Integer[] saleQnt = {3};
-		Double[] saleCost = {33.00};
-		Double[] totalProductItem = {11.00};
-		Integer[] productId = { 5 };
-		ItemPedidoVenda itemPedidoVenda = new ItemPedidoVenda(
+		Integer[] productId = {1,5,9};
+		Integer[] saleQnt = {5,3,8};
+		Double[] saleCost = {265.00,33.00,8.00};
+		Double[] totalProductItem = {53.00,11.00,1.00};
+		ItemPedidoVenda successCaseItemPedidoVenda = new ItemPedidoVenda(
 				saleQnt, saleCost, totalProductItem, productId
 		);
-		Order order = new Order(itemPedidoVenda, pedidoVenda);
+		Order order = new Order(successCaseItemPedidoVenda, successCasePedidoVenda);
 		order.endOrder(connection);
+		PedidoVenda errorCasePedidoVenda = new PedidoVenda(
+				"2021-07-07", 6516.00, 4, 4, 774,
+				"Ao lado da padaria.", "Alguma coisa q eu não sei."
+		);
+		Integer[] productIdError = {1,5,9};
+		Integer[] saleQntError = {5,11,8};
+		Double[] saleCostError = {265.00,121.00,8.00};
+		Double[] totalProductItemError = {53.00,11.00,1.00};
+		ItemPedidoVenda errorCaseItemPedidoVenda = new ItemPedidoVenda(
+				saleQntError, saleCostError, totalProductItemError, productIdError
+		);
+		Order errorOrder = new Order(errorCaseItemPedidoVenda, errorCasePedidoVenda);
+		errorOrder.endOrder(connection);
 		
 	}
 }
