@@ -78,7 +78,6 @@ public class PedidoVenda {
     return this.pedidoVendacol;
   }
 
-
   public void setOrderDt (String orderDt) {
     this.orderDt = orderDt;
   }

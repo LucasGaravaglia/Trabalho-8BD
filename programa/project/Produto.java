@@ -1,8 +1,18 @@
 package project;
 
+import java.sql.SQLException;
+
 public class Produto {
 
   private String[] queryItemPedidoVenda;
+
+  public Produto(Produto produto) {
+    int i, n = queryItemPedidoVenda.length;
+    this.queryItemPedidoVenda = new String[n];
+    for (i = 0; i < n; i++) {
+      this.queryItemPedidoVenda[i] = produto.getItemPedidoVenda(i);
+    }
+  }
 
   public Produto(String[] queryItemPedidoVenda) {
     int i, n = queryItemPedidoVenda.length;
@@ -28,17 +38,14 @@ public class Produto {
     return sqls;
   }
 
-  public String[] selectProductsIdAndQnt() {
-    Integer[] ids = new Integer[this.queryItemPedidoVenda.length];
-    Integer[] qnts = new Integer[this.queryItemPedidoVenda.length];
-    String[] values = new String[5];
-    int i = 0;
-    for (String queryString : this.queryItemPedidoVenda) {
-      values = queryString.split("VALUES \\(")[1].split("\\)")[0].split(",");
-      ids[i] = Integer.parseInt(values[4]);
-      qnts[i] = Integer.parseInt(values[0]);
+  public void executeTransition(DbConnection connection, Integer[] productId, Integer[] saleQnt) throws SQLException {
+    for (String query : this.reduceAllChosenProductsQtn(productId, saleQnt)) {
+      connection.execute(query);
     }
-    return reduceAllChosenProductsQtn(ids, qnts);
   }
-  
+
+  public String getItemPedidoVenda(int i) {
+    return this.queryItemPedidoVenda[i];
+  }
+
 }

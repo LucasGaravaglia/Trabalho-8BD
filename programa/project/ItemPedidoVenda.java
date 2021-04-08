@@ -8,6 +8,7 @@ public class ItemPedidoVenda {
   private Double[] totalProductItem;
   private Integer[] orderNumber;
   private Integer[] productId;
+  private String[] sqls;
 
   public ItemPedidoVenda(ItemPedidoVenda itemPedidoVenda) {
     int i, n = saleQnt.length;
@@ -68,12 +69,12 @@ public class ItemPedidoVenda {
 
   public String[] registerAllChosenItems() {
     int numberOfItems = saleQnt.length;
-    String[] sqls = new String[numberOfItems];
+    this.sqls = new String[numberOfItems];
     for (int i = 0; i < numberOfItems; i++) {
-      sqls[i] = this.registerChosenItem(this.saleQnt[i], this.saleCost[i], this.totalProductItem[i],
-          this.orderNumber[i], this.productId[i]);
+      this.sqls[i] = this.registerChosenItem(this.saleQnt[i], this.saleCost[i],
+          this.totalProductItem[i],this.orderNumber[i], this.productId[i]);
     }
-    return sqls;
+    return this.sqls;
   }
   
   public void executeTransition(DbConnection connection) throws SQLException {
@@ -82,6 +83,9 @@ public class ItemPedidoVenda {
     }
   }
 
+  public String[] getSqls() {
+    return this.sqls;
+  }
   public Integer getSaleQnt(int position) {
     return this.saleQnt[position];
   }
@@ -100,5 +104,25 @@ public class ItemPedidoVenda {
 
   public Integer getProductId(int position) {
     return this.productId[position];
+  }
+
+  public Integer[] getSaleQnt() {
+    return this.saleQnt;
+  }
+
+  public Double[] getSaleCost() {
+    return this.saleCost;
+  }
+
+  public Double[] getTotalProductItem() {
+    return this.totalProductItem;
+  }
+
+  public Integer[] getOrderNumber() {
+    return this.orderNumber;
+  }
+
+  public Integer[] getProductId() {
+    return this.productId;
   }
 }

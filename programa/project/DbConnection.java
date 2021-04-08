@@ -44,39 +44,5 @@ public class DbConnection {
     Statement stmQuery = this.connection.createStatement();
     stmQuery.execute(query);
   }
-  
-
-  // public Boolean commit(Connection connection,String queryPedidoVenda, String []queryItemPedidoVenda) {
-  //   Statement stmQuery;
-  //   String[] queryProdutos;
-  //   try {
-  //     stmQuery = connection.createStatement();
-  //     connection.setAutoCommit(false);
-
-  //     stmQuery.execute(queryPedidoVenda);
-  //     // System.out.println(queryPedidoVenda);
-      
-  //     for (String queryString : queryItemPedidoVenda) {
-  //       stmQuery.execute(queryString);
-  //       // System.out.println(queryString);
-  //     }
-  //     queryProdutos = this.selectProductsIdAndQnt(queryItemPedidoVenda);
-  //     for (String queryString : queryProdutos) {
-  //       stmQuery.execute(queryString);
-  //     }
-  //     this.connection.commit();
-
-  //     System.out.println("Alterações confirmadas com sucesso no banco de dados!");
-  //     return true;
-  //   } catch (SQLException e) {
-  //     try { // Rollback update
-  //       this.connection.rollback();
-  //       System.out.println("Alterações revertidas com sucesso do banco de dados!" + e.getMessage());
-  //     } catch (SQLException e1) {
-  //       System.out.println("Não foi possível reverter as atualizações " + e1.getMessage());
-  //     }
-  //   }
-  //   return false;
-  // }
 
 }
