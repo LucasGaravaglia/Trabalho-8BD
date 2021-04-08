@@ -1,21 +1,32 @@
 package project;
 
-import java.util.Scanner;
+import javax.security.auth.x500.X500Principal;
+
 
 public class Main {
 	public static void main(String[] args) {
 
 		DbConnection conn = new DbConnection();
-		Integer[] a = {11,12,13,14,15};
-		Double[] b = {21.0,22.0,23.0,24.0,25.0};
-		Double[] c = {31.0,32.0,33.0,34.0,35.0};
-		Integer[] d = {41,42,43,44,45};
-		Integer[] e = {51,52,53,54,55};
+		Integer[] saleQnt = {3};
+		Double[] saleCost = {33.00};
+		Double[] totalProductItem = {11.00};
+		Integer[] orderNumber = {1};
+		Integer[] productId = {5};
 
-		conn.generateOrderRequest("2021-04-07", 255.36, 12, 1, 77, 
-				"Ao lado do Mercado.", "Não sei oq é isso");
-		//conn.registerChosenItem(5, 200.0, 1000.0, 2, 9);
-		conn.registerAllChosenItems(a,b,c,d,e);
+		conn.endOrder(
+			"2021-07-07", 
+			6516.00, 
+			5, //ATUALIZAR
+			5, //ATUALIZAR
+			774, 
+			"Ao lado da padaria.", 
+			"Alguma coisa q eu nao sei.", 
+
+			saleQnt, 
+			saleCost, 
+			totalProductItem, 
+			orderNumber, 
+			productId);
 
 		conn.closeConnection();
 	}

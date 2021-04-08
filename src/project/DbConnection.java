@@ -7,12 +7,14 @@ import java.sql.Statement;
 
 public class DbConnection {
   private Connection connection = null;
-  String ip = "localhost";
-  String port = "3306";
-  String dbName = "Pedidos";
-  String user = "root";
-  String pass = "123";
-  String url = "jdbc:mariadb://" + ip + ":" + port + "/" + dbName;
+  private String ip = "localhost";
+  private String port = "3306";
+  private String dbName = "Pedidos";
+  private String user = "root";
+  private String pass = "123";
+  private String url = "jdbc:mariadb://" + ip + ":" + port + "/" + dbName;
+
+  
   public DbConnection() {
     try {
       this.connection = DriverManager.getConnection(url, user, pass);
@@ -21,105 +23,60 @@ public class DbConnection {
     }
   }
 
-  public String generateOrderRequest(String orderDt, Double total, 
-      Integer clientId, Integer deliveryAddrId, Integer houseNumber,
-      String deliveryAddrCompliment, String pedidoVendacol) {
-    System.out.println("Gerando o pedido de venda");
-    String sql = "INSERT INTO PedidoVenda" +
-    "(dtPedido,totalPedido,Cliente_codCliente," +
-      "EnderecoEntrega_idEndereco,nroCasa_endEntrega," +
-      "compl_endEntrega,PedidoVendacol) " +
-    "VALUES " +
-      "(" + 
-        "'" + orderDt + "'," +
-        total.toString() + "," +
-        clientId.toString() + "," +
-        deliveryAddrId.toString() + "," +
-        houseNumber.toString() + "," +
-        "'" + deliveryAddrCompliment + "'," +
-        "'" + pedidoVendacol + "'" + 
-        ");";
-    System.out.println(sql);
-    return sql;
-  }
-
-  public String registerChosenItem(Integer saleQnt, Double saleCost,
-      Double totalProductItem, Integer orderNumber, Integer productId) {
-    System.out.println("Registrando um item para o pedido " + orderNumber.toString());
-    String sql = "INSERT INTO ItemPedidoVenda" +
-                "(" + 
-                  "qtdeVenda,precoVenda,totalItemProduto," +
-                  "PedidoVenda_nroPedido,Produto_codProduto" +
-                ") " +
-                "VALUES " +
-                  "(" +
-                    saleQnt.toString() + "," +
-                    saleCost.toString() + "," +
-                    totalProductItem.toString() + "," +
-                    orderNumber.toString() + "," +
-                    productId.toString() +
-                    ");";
-    System.out.println(sql);
-    return sql;
-  }
-
-  public String[] registerAllChosenItems(Integer saleQnt[], Double saleCost[],
-      Double totalProductItem[], Integer orderNumber[], Integer productId[]) {
-    int numberOfItems = saleQnt.length;
-    String[] sqls = new String[numberOfItems];
-    for (int i = 0; i < numberOfItems; i++) {
-      sqls[i] = this.registerChosenItem(saleQnt[i], saleCost[i], totalProductItem[i], orderNumber[i], productId[i]);
+  public void closeConnection() {
+    try {
+      if (this.connection.isClosed())
+        this.connection.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
     }
-    return sqls;
+  }
+
+  public void setAutoCommit(Boolean commit) throws SQLException {
+    this.connection.setAutoCommit(commit);
+  }
+
+  public void rollback() throws SQLException {
+    this.connection.rollback();
+  }
+
+  public void execute(String query) throws SQLException {
+    Statement stmQuery = this.connection.createStatement();
+    stmQuery.execute(query);
   }
   
-// UPDATE `Produto` SET `qtdEstoque` = qtdEstoque-1 WHERE codProduto = $;
 
-  public void reduceProductQnt(Integer productId) {
-    String sql = "";
-  }
+  // public Boolean commit(Connection connection,String queryPedidoVenda, String []queryItemPedidoVenda) {
+  //   Statement stmQuery;
+  //   String[] queryProdutos;
+  //   try {
+  //     stmQuery = connection.createStatement();
+  //     connection.setAutoCommit(false);
 
-  public void endOrder() {
-    
-
-  }
-
-  public void commit(String queryPedido,String []queryItensPedidos,String[] queryProdutos) {
-    Statement stmQuery;
-    try {
-      stmQuery = this.connection.createStatement();
-      this.connection.setAutoCommit(false);
-      stmQuery.execute(queryPedido);
+  //     stmQuery.execute(queryPedidoVenda);
+  //     // System.out.println(queryPedidoVenda);
       
-      for (String queryString : queryItensPedidos) {
-        stmQuery.execute(queryString);
-      }
-      
-      for (String queryString : queryProdutos) {
-        stmQuery.execute(queryString);
-      }
-      
-      this.connection.commit();
-      
-      System.out.println("Alterações confirmadas com sucesso no banco de dados!");
-    } catch (SQLException e) {
-      try { // Rollback update
-        this.connection.rollback();
-        System.out.println("Alterações revertidas com sucesso do banco de dados!");
-      } catch (SQLException e1) {
-        System.out.println("Não foi possível reverter as atualizações " + e1.getMessage());
-      }
-    }
-  }
+  //     for (String queryString : queryItemPedidoVenda) {
+  //       stmQuery.execute(queryString);
+  //       // System.out.println(queryString);
+  //     }
+  //     queryProdutos = this.selectProductsIdAndQnt(queryItemPedidoVenda);
+  //     for (String queryString : queryProdutos) {
+  //       stmQuery.execute(queryString);
+  //     }
+  //     this.connection.commit();
 
-  public void closeConnection() {
-      try{
-        if(this.connection.isClosed())
-          this.connection.close();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-  }
-
+  //     System.out.println("Alterações confirmadas com sucesso no banco de dados!");
+  //     return true;
+  //   } catch (SQLException e) {
+  //     try { // Rollback update
+  //       this.connection.rollback();
+  //       System.out.println("Alterações revertidas com sucesso do banco de dados!" + e.getMessage());
+  //     } catch (SQLException e1) {
+  //       System.out.println("Não foi possível reverter as atualizações " + e1.getMessage());
+  //     }
+  //   }
+  //   return false;
+  // }
 
 }

@@ -82,4 +82,4 @@ INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUE
 INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Alessandra Catarina Cláudia Teixeira", 2,"488");
 INSERT INTO Cliente (nomeCliente, Endereco_idEndereco, nroCasa_endCliente) VALUES ("Severino Raul Leonardo Farias",1 ,"966");
 
-INSERT INTO `Produto` (`nomeProduto`,`precoProduto`,`qtedEstoque`) VALUES  ("cereals",53,13), ("noodles",165,35), ("salads",155,11), ("pies",144,24), ("desserts",11,13), ("seafood",147,31), ("soups",9,49); ("pasta",29,18), ("sandwiches",1,42);
+INSERT INTO `Produto` (`nomeProduto`,`precoProduto`,`qtdeEstoque`) VALUES  ("cereals",53,13), ("noodles",165,35), ("salads",155,11), ("pies",144,24), ("desserts",11,13), ("seafood",147,31), ("soups",9,49), ("pasta",29,18), ("sandwiches",1,42);
