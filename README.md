@@ -34,6 +34,7 @@ Quais as modificações que se propõe no modelo E-R e na lógica da transação
 - Neste cenário, enquanto o Pedido não for pago, ele está no estado "Pedido Emitido Esperando pagamento"
 - Após pagamento, pedido muda de estado para pedido aprovado
 
+## Diagramas
 <h1 align="center">
     <img alt="CCL" title="M-E-R" src="https://github.com/LucasGaravaglia/Trabalho-8BD/blob/main/expecifications/pedido_venda.png" width="700px" />
 </h1>
