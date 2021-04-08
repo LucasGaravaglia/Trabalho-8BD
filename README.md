@@ -36,9 +36,9 @@ Quais as modificações que se propõe no modelo E-R e na lógica da transação
 
 ## Diagramas
 <h1 align="center">
-    <img alt="CCL" title="M-E-R" src="https://github.com/LucasGaravaglia/Trabalho-8BD/blob/main/expecifications/pedido_venda.png" width="700px" />
+    <img alt="CCL" title="M-E-R" src="https://github.com/LucasGaravaglia/Trabalho-8BD/blob/main/docs/pedido_venda.png" width="700px" />
 </h1>
 
 <h1 align="center">
-    <img alt="CCL" title="M-E-R" src="https://github.com/LucasGaravaglia/Trabalho-8BD/blob/main/expecifications/M_E_R.png" width="700px" />
+    <img alt="CCL" title="M-E-R" src="https://github.com/LucasGaravaglia/Trabalho-8BD/blob/main/docs/M_E_R.png" width="700px" />
 </h1>
