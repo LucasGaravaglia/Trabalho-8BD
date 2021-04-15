@@ -1,0 +1,18 @@
+No modelo E-R será necessário adicionar as seguintes colunas na tabela "PedidoVenda":
+  - "SituacaoPedidoVenda" -> Representa quando um pedido foi emitido e está esperado o pagamento
+    ou quando foi aceito e pronto para entrega.
+  - "DataPagamento" -> Informa a data na qual o pagamento foi realizado.
+  - "DataVencimentoPagamento" -> Informa a data máxima de pagamento do pedido.
+  - "FormaPagamento_idFormaPagamento" -> Relaciona o pagamento com o tipo de pagamento utilizado.
+
+e uma nova tabela, "FormaPagamento", com as seguintes colunas:
+ - "idFormaPagamento" -> Chave primaria da tabela.
+ - "FormaPagamento" -> Forma de pagamento que pode ser utilizada.
+
+Quanto a transação que já havia sido implementada, será incluido que o pedido foi emitido e está
+aguardando pagamento, além de preencher os dados referentes ao pagamento.
+Será necessário criar uma nova transação para confirmar a compra quando o pagamento for realizado,
+atualizado a data de pagamento e a situação do pedido. Caso a segunda transação falhe a alteração 
+feita na quantidade dos produtos em estoque será desfeita e o pedido cancelado
+
+  

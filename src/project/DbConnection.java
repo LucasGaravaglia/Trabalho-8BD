@@ -4,11 +4,11 @@ import java.sql.*;
 
 public class DbConnection {
   private Connection connection = null;
-  private String ip = "localhost";
+  private String ip = "172.17.0.2";
   private String port = "3306";
   private String dbName = "Pedidos";
   private String user = "root";
-  private String pass = "123";
+  private String pass = "pass";
   private String url = "jdbc:mariadb://" + ip + ":" + port + "/" + dbName;
 
   
