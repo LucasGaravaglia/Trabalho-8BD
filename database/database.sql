@@ -225,6 +225,17 @@ CREATE TABLE IF NOT EXISTS `Pedidos`.`ItemPedidoVenda` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE VIEW PedidoProdutos AS
+  select
+    PedidoVenda.dtPedido "Data do pedido(PV)",
+    PedidoVenda.Cliente_codCliente "Codigo cliente(PV)",
+    ItemPedidoVenda.qtdeVenda "Quantidade necessaria para compra(IPV)",
+    ItemPedidoVenda.totalItemProduto "Valor total da compra(IPV)",
+    Produto.nomeProduto "Nome do produto(P)",
+    Produto.qtdeEstoque "Quantidade em estoque(P)"
+  from Produto
+  left join ItemPedidoVenda on ItemPedidoVenda.Produto_codProduto = Produto.codProduto
+  left join PedidoVenda on PedidoVenda.nroPedido = ItemPedidoVenda.PedidoVenda_nroPedido;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
